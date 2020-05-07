@@ -81,7 +81,7 @@ var WebViewController = JSB.defineClass('WebViewController : UIViewController', 
   webViewDidFailLoadWithError: function(webView, error) {
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
     Application.sharedInstance().stopWaitHUDOnView(self.view);
-	var lan = NSLocale.preferredLanguages().length?NSLocale.preferredLanguages()[0].substring(0,2):'en';
+  var lan = NSLocale.preferredLanguages().length?NSLocale.preferredLanguages()[0].substring(0,2):'en';
 
     //var errorString = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"><html><head><meta http-equiv='Content-Type' content='text/html;charset=utf-8'><title></title></head><body><div style='width: 100%%; text-align: center; font-size: 36pt; color: red;'>An error occurred:<br>%@</div></body></html>";
     //errorString = errorString.replace("%@", error.localizedDescription);
@@ -154,10 +154,15 @@ WebViewController.prototype.updateOffset = function(){
   this.webView.evaluateJavaScript('document.getElementsByClassName("lmt__side_container--target")[0].getBoundingClientRect().top + document.body.scrollTop+document.documentElement.scrollTop;',function(ret){
     if(!webControlerler.webView)return;
     if(ret && !isNaN(parseFloat(ret))){
-      webControlerler.webView.scrollView.contentOffset = {x:0,y:parseFloat(ret)+52};          
+      webControlerler.webView.scrollView.contentOffset = {x:0,y:parseFloat(ret)+0};          
     }
     else{
       webControlerler.webView.scrollView.contentOffset = {x:0,y:130};          
     }
   });
+  this.webView.evaluateJavaScript('document.getElementsByClassName("dl_header--sticky")[0].style.display = "none";\
+    document.getElementsByClassName("lmt__stickyMenubar_whiteBackground--show")[0].style.display = "none";\
+    document.getElementsByClassName("lmt__language_container")[0].style.display = "none";\
+    document.getElementsByClassName("lmt__language_container")[1].style.display = "none";\
+    ',function(ret){});
 }
