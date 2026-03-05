@@ -103,7 +103,7 @@ var WebViewController = JSB.defineClass('WebViewController : UIViewController', 
                                     {title:'French',object:self,selector:'changeLanguageTo:',param:'fr',checked:(self.lanCode == 'fr')},
                                     {title:'Spanish',object:self,selector:'changeLanguageTo:',param:'es',checked:(self.lanCode == 'es')},
                                     {title:'Russian',object:self,selector:'changeLanguageTo:',param:'ru',checked:(self.lanCode == 'ru')},
-                                    {title:'Italian',object:self,selector:'changeLanguageTo:',param:'it',checked:(self.lanCode == 'it')},
+                                    {title:'Korean',object:self,selector:'changeLanguageTo:',param:'ko',checked:(self.lanCode == 'it')},
                                     {title:'Japanese',object:self,selector:'changeLanguageTo:',param:'ja',checked:(self.lanCode == 'ja')}];
     menuController.rowHeight = 44;
     menuController.preferredContentSize = {width:200,height:menuController.rowHeight * menuController.commandTable.length};
